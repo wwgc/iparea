@@ -20,7 +20,7 @@ ipArea.getIPAdrea('66.104.77.20',function(data){
 });
 ```
 
-# result
+### result
 
 ```
 浙江
