@@ -1,6 +1,6 @@
 iparea
 ========
-### lookup ip area, get the information of ip: country or city.
+### lookup ip area, get the information of ip: country or province.
 
 
 ## install
