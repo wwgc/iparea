@@ -9,6 +9,8 @@ npm install iparea
 
 ## usage
 
+#### demo
+
 ```
 var ipArea = new (require('iparea'))();
 
@@ -27,6 +29,8 @@ ipArea.getIPAdrea('66.104.77.20',function(data){
 美国
 ```
 
+#### demo
+
 ```
 ipArea.getIPAdrea('127.0.0.1',function(data){
 	console.log(data);
@@ -39,6 +43,8 @@ ipArea.getIPAdrea('127.0.0.1',function(data){
 本地
 ```
 
+#### demo
+
 ```
 ipArea.getIPAdrea('192.168.1.1',function(data){
 	console.log(data);
@@ -50,6 +56,8 @@ ipArea.getIPAdrea('192.168.1.1',function(data){
 ```
 局域网
 ```
+
+#### demo
 
 ```
 ipArea.getIPAdrea('0.0.0.0',function(data){
