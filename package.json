@@ -1,0 +1,16 @@
+{
+  "name": "iparea",
+  "version": "1.0.0",
+  "description": "lookup ip area",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ip",
+    "lookup",
+    "area"
+  ],
+  "author": "jian",
+  "license": "ISC"
+}
