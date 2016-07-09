@@ -10,17 +10,25 @@ IPArea.prototype.getIPAdrea = function(ip, next){
 	http.get(this.url + ip, function(res){
 		res.setEncoding('utf8');
 		res.on('data',function(data){
-			var ipDetail = JSON.parse(data);
-			if(ipDetail instanceof Number){
-				next('未识别');	
-			}else if(ipDetail.ret === -1){
-				next('局域网');
-			}else if(ipDetail.ret === 1){
-				next(ipDetail.country === '中国' ? ipDetail.province: ipDetail.country);
-			}else{
-				next('未识别');	
+			try{
+				var ipDetail = JSON.parse(data);
+				if(ipDetail instanceof Number){
+					next('未识别');	
+				}else if(ipDetail.ret === -1){
+					next('局域网');
+				}else if(ipDetail.ret === 1){
+					next(ipDetail.country === '中国' ? ipDetail.province: ipDetail.country);
+				}else{
+					next('未识别');	
+				}
+			}catch(e){
+				console.log('Error happend when parsing response data:', e.message);
+				next('');
 			}
 		});
+	}).on('error', function(e){
+		console.log('Error happened when getting ip area:', e.message);
+		next('');
 	});
 }
 
