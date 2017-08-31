@@ -72,6 +72,10 @@ ipArea.getIPAdrea('0.0.0.0',function(err, data){
 
 ## changelog
 
+#### 1.0.6
+
+Make all return data type to be string.
+
 #### 1.0.5
 
 1 Add return error param;

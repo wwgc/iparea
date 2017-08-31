@@ -22,7 +22,7 @@ IPArea.prototype.getIPAdrea = function(ip, next){
      	if (error) {
         	// consume response data to free up memory
         	res.resume();
-        	return next(error, null);
+        	return next(error, '');
       	}
 
 		res.setEncoding('utf8');
@@ -43,11 +43,11 @@ IPArea.prototype.getIPAdrea = function(ip, next){
 					return next(null, '未识别');	
 				}
 			}catch(e){
-				return next(e, null);
+				return next(e, '');
 			}
 		});
 	}).on('error', function(e){
-		next(e, null);
+		next(e, '');
 	});
 }
 
