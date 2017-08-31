@@ -1,25 +1,16 @@
 
 var ipArea = new (require('../index'))();
 
-ipArea.getIPAdrea('127.0.0.1',function(data){
-	console.log('127.0.0.1:', data);
+function testUnit(ip){
+	ipArea.getIPAdrea(ip,function(err, data){
+		console.log('Get area for', ip+':');
+		if(err) console.error(err);
+		if(!err) console.log(data);
+	});
+}
+
+var ipList = ['127.0.0.1','0.0.0.0', '192.168.1.1', '183.129.210.50', '66.104.77.20'];
+
+ipList.forEach(function(ip){
+	testUnit(ip);
 });
-
-ipArea.getIPAdrea('0.0.0.0',function(data){
-	console.log('0.0.0.0:', data);
-});
-
-ipArea.getIPAdrea('192.168.1.1',function(data){
-	console.log('192.168.1.1:', data);
-});
-
-ipArea.getIPAdrea('183.129.210.50',function(data){
-	console.log('183.129.210.50:', data);
-});
-
-ipArea.getIPAdrea('66.104.77.20',function(data){
-	console.log('66.104.77.20:', data);
-});
-
-
-

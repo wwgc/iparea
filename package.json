@@ -1,6 +1,6 @@
 {
   "name": "iparea",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "lookup ip area",
   "repository": {
     "type": "git",
@@ -8,7 +8,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/test.js"
   },
   "keywords": [
     "ip",
@@ -16,5 +16,5 @@
     "area"
   ],
   "author": "jian",
-  "license": "ISC"
+  "license": "MIT"
 }

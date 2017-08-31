@@ -1,7 +1,6 @@
 iparea
 ========
-### lookup ip area, get the information of ip: country or province.
-
+### lookup ip area, get the information of ip: country or province, using sina interface.
 
 ## install
 
@@ -9,15 +8,15 @@ npm install iparea
 
 ## usage
 
-#### demo
+#### demo1
 
 ```
 var ipArea = new (require('iparea'))();
 
-ipArea.getIPAdrea('183.129.210.50',function(data){
+ipArea.getIPAdrea('183.129.210.50',function(err, data){
 	console.log(data);
 });
-ipArea.getIPAdrea('66.104.77.20',function(data){
+ipArea.getIPAdrea('66.104.77.20',function(err, data){
 	console.log(data);
 });
 ```
@@ -29,10 +28,10 @@ ipArea.getIPAdrea('66.104.77.20',function(data){
 美国
 ```
 
-#### demo
+#### demo2
 
 ```
-ipArea.getIPAdrea('127.0.0.1',function(data){
+ipArea.getIPAdrea('127.0.0.1',function(err, data){
 	console.log(data);
 });
 ```
@@ -43,10 +42,10 @@ ipArea.getIPAdrea('127.0.0.1',function(data){
 本地
 ```
 
-#### demo
+#### demo3
 
 ```
-ipArea.getIPAdrea('192.168.1.1',function(data){
+ipArea.getIPAdrea('192.168.1.1',function(err, data){
 	console.log(data);
 });
 ```
@@ -57,10 +56,10 @@ ipArea.getIPAdrea('192.168.1.1',function(data){
 局域网
 ```
 
-#### demo
+#### demo4
 
 ```
-ipArea.getIPAdrea('0.0.0.0',function(data){
+ipArea.getIPAdrea('0.0.0.0',function(err, data){
 	console.log(data);
 });
 ```
@@ -70,3 +69,10 @@ ipArea.getIPAdrea('0.0.0.0',function(data){
 ```
 未识别
 ```
+
+## changelog
+
+#### 1.0.5
+
+1 Add return error param;
+2 impove http deal.

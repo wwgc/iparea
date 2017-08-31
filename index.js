@@ -5,30 +5,49 @@ var IPArea = function(){
 }
 
 IPArea.prototype.getIPAdrea = function(ip, next){
-	if(ip === '127.0.0.1')return next('本地');
+	if(ip === '127.0.0.1')return next(null, '本地');
 
 	http.get(this.url + ip, function(res){
+		var statusCode = res.statusCode;
+		var contentType = res.headers['content-type'];
+
+		var error;
+
+        if (statusCode !== 200) {
+         	error = new Error('Request Failed.Status Code:' + statusCode);
+      	} else if (!/^application\/json/.test(contentType)) {
+        	error = new Error('Invalid content-type.Expected application/json but received' + contentType);
+      	}
+
+     	if (error) {
+        	// consume response data to free up memory
+        	res.resume();
+        	return next(error, null);
+      	}
+
 		res.setEncoding('utf8');
-		res.on('data',function(data){
+		var data = '';
+		res.on('data', function(chunk){
+			data += chunk;
+		});
+		res.on('end', function(){
 			try{
 				var ipDetail = JSON.parse(data);
 				if(ipDetail instanceof Number){
-					next('未识别');	
+					return next(null, '未识别');	
 				}else if(ipDetail.ret === -1){
-					next('局域网');
+					return next(null, '局域网');
 				}else if(ipDetail.ret === 1){
-					next(ipDetail.country === '中国' ? ipDetail.province: ipDetail.country);
+					return next(null, ipDetail.country === '中国' ? ipDetail.province: ipDetail.country);
 				}else{
-					next('未识别');	
+					return next(null, '未识别');	
 				}
 			}catch(e){
-				console.log('Error happend when parsing response data:', e.message);
-				next('');
+				return next(e, null);
 			}
 		});
 	}).on('error', function(e){
-		console.log('Error happened when getting ip area:', e.message);
-		next('');
+		next(e, null);
 	});
 }
 
