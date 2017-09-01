@@ -47,7 +47,7 @@ IPArea.prototype.getIPAdrea = function(ip, next){
 			}
 		});
 	}).on('error', function(e){
-		next(e, '');
+		return next(e, '');
 	});
 }
 

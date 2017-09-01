@@ -79,4 +79,4 @@ Make all return data type to be string.
 #### 1.0.5
 
 1 Add return error param;
-2 impove http deal.
+2 improve http deal.
