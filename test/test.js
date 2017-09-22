@@ -1,8 +1,8 @@
 
-var ipArea = new (require('../index'))();
+var ipArea = new (require('../index'))({timeout: 1000});
 
 function testUnit(ip){
-	ipArea.getIPAdrea(ip,function(err, data){
+	ipArea.getIPArea(ip,function(err, data){
 		console.log('Get area for', ip+':');
 		if(err) console.error(err);
 		if(!err) console.log(data);

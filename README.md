@@ -8,20 +8,28 @@ npm install iparea
 
 ## usage
 
-#### demo1
+#### create object
 
 ```
 var ipArea = new (require('iparea'))();
+```
+or set timeout option, default 1000ms.
+```
+var ipArea = new (require('iparea'))({timeout: 1000});
+```
 
-ipArea.getIPAdrea('183.129.210.50',function(err, data){
+#### demo1
+
+```
+ipArea.getIPArea('183.129.210.50',function(err, data){
 	console.log(data);
 });
-ipArea.getIPAdrea('66.104.77.20',function(err, data){
+ipArea.getIPArea('66.104.77.20',function(err, data){
 	console.log(data);
 });
 ```
 
-#### result
+**result**
 
 ```
 浙江
@@ -31,12 +39,12 @@ ipArea.getIPAdrea('66.104.77.20',function(err, data){
 #### demo2
 
 ```
-ipArea.getIPAdrea('127.0.0.1',function(err, data){
+ipArea.getIPArea('127.0.0.1',function(err, data){
 	console.log(data);
 });
 ```
 
-#### result
+**result**
 
 ```
 本地
@@ -45,12 +53,12 @@ ipArea.getIPAdrea('127.0.0.1',function(err, data){
 #### demo3
 
 ```
-ipArea.getIPAdrea('192.168.1.1',function(err, data){
+ipArea.getIPArea('192.168.1.1',function(err, data){
 	console.log(data);
 });
 ```
 
-#### result
+**result**
 
 ```
 局域网
@@ -59,18 +67,23 @@ ipArea.getIPAdrea('192.168.1.1',function(err, data){
 #### demo4
 
 ```
-ipArea.getIPAdrea('0.0.0.0',function(err, data){
+ipArea.getIPArea('0.0.0.0',function(err, data){
 	console.log(data);
 });
 ```
 
-#### result
+**result**
 
 ```
 未识别
 ```
 
 ## changelog
+
+#### 1.0.7
+
+Add timeout option;
+Change method-name: getIPAdrea to getIPArea.
 
 #### 1.0.6
 

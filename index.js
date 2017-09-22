@@ -1,11 +1,14 @@
 var http = require('http');
 
-var IPArea = function(){
+var IPArea = function(options){
 	this.url = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=";
+	this.options = options;
 }
 
-IPArea.prototype.getIPAdrea = function(ip, next){
+IPArea.prototype.getIPArea = function(ip, next){
 	if(ip === '127.0.0.1')return next(null, '本地');
+
+	var timeout = ( this.options && this.options.timeout )|| 1000;
 
 	http.get(this.url + ip, function(res){
 		var statusCode = res.statusCode;
@@ -48,6 +51,8 @@ IPArea.prototype.getIPAdrea = function(ip, next){
 		});
 	}).on('error', function(e){
 		return next(e, '');
+	}).setTimeout(timeout, function(){
+		this.abort();
 	});
 }
 
