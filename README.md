@@ -1,6 +1,6 @@
 iparea
 ========
-### lookup ip area, get the information of ip: country or province, using sina interface.
+### lookup ip area, get the information of ip: country or province, using sina API.
 
 ## install
 
@@ -13,9 +13,15 @@ npm install iparea
 ```
 var ipArea = new (require('iparea'))();
 ```
-or set timeout option, default 1000ms.
+or set options:
+1 timeout option, default 1000ms.
 ```
 var ipArea = new (require('iparea'))({timeout: 1000});
+```
+2 url option, using sina API proxy.
+default: http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=
+```
+var ipArea = new (require('iparea'))({url:'http://127.0.0.1:52000/iplookup/iplookup.php?format=json&ip=', timeout: 2000});
 ```
 
 #### demo1
@@ -79,6 +85,10 @@ ipArea.getIPArea('0.0.0.0',function(err, data){
 ```
 
 ## changelog
+
+#### 1.0.8
+
+Add url option, using sina API proxy.
 
 #### 1.0.7
 
