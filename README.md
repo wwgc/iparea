@@ -13,7 +13,7 @@ npm install iparea
 ```
 var ipArea = new (require('iparea'))();
 ```
-or set options:<br/>
+#### set options
 1 timeout option, default 1000ms.
 ```
 var ipArea = new (require('iparea'))({timeout: 1000});
