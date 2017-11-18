@@ -15,9 +15,11 @@ var ipArea = new (require('iparea'))();
 ```
 #### set options
 1 timeout option, default 1000ms.
+
 ```js
 var ipArea = new (require('iparea'))({timeout: 1000});
-```js
+```
+
 2 url option, using sina API proxy.<br/>
 default: http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=
 ```js
