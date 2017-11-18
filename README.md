@@ -10,23 +10,23 @@ npm install iparea
 
 #### create object
 
-```
+```js
 var ipArea = new (require('iparea'))();
 ```
 #### set options
 1 timeout option, default 1000ms.
-```
+```js
 var ipArea = new (require('iparea'))({timeout: 1000});
-```
+```js
 2 url option, using sina API proxy.<br/>
 default: http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=
-```
+```js
 var ipArea = new (require('iparea'))({url:'http://127.0.0.1:52000/iplookup/iplookup.php?format=json&ip=', timeout: 2000});
 ```
 
 ### method: getIPArea
 
-```
+```js
 ipArea.getIPArea('127.0.0.1',function(err, data){
 	console.log(data);
 });
@@ -34,7 +34,7 @@ ipArea.getIPArea('127.0.0.1',function(err, data){
 
 **inputs**
 
-```
+```js
 0.0.0.0
 127.0.0.1
 192.168.1.1
@@ -45,7 +45,7 @@ ipArea.getIPArea('127.0.0.1',function(err, data){
 
 **results**
 
-```
+```js
 未识别
 本地
 局域网
@@ -55,7 +55,7 @@ ipArea.getIPArea('127.0.0.1',function(err, data){
 
 ### method: getIPInfo
 
-```
+```js
 ipArea.getIPInfo('127.0.0.1',function(err, data){
 	console.log(data);
 });
@@ -63,7 +63,7 @@ ipArea.getIPInfo('127.0.0.1',function(err, data){
 
 **inputs**
 
-```
+```js
 0.0.0.0
 127.0.0.1
 192.168.1.1
@@ -74,7 +74,7 @@ ipArea.getIPInfo('127.0.0.1',function(err, data){
 
 **results**
 
-```
+```js
 -2
 { ret: -1, ip: '127.0.0.1' }
 { ret: -1, ip: '192.168.1.1' }
